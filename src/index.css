@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  /* 🌞 Light Theme Colors */
+  --color-light-primary: #2bd447;
+  --color-light-secondary: #4eda65;
+  --color-light-text: #062d0e;
+  --color-light-muted-text: #187d2a;
+  --color-light-bg: #f0fdf1;
+  --color-light-surface: #ffffff;
+  --color-light-border: #bdf5c6;
+
+  /* 🌙 Dark Theme Colors */
+  --color-dark-primary: #2bd447;
+  --color-dark-secondary: #4eda65;
+  --color-dark-text: #f0fdf1;
+  --color-dark-muted-text: #bdf5c6;
+  --color-dark-bg: #062d0e;
+  --color-dark-surface: #165121;
+  --color-dark-border: #187d2a;
+
+  /* 🎨 Malachite Shades */
+  --color-malachite-50: #f0fdf1;
+  --color-malachite-100: #ddfbe1;
+  --color-malachite-200: #bdf5c6;
+  --color-malachite-300: #89ec99;
+  --color-malachite-400: #4eda65;
+  --color-malachite-500: #2bd447;
+  --color-malachite-600: #1a9f30;
+  --color-malachite-700: #187d2a;
+  --color-malachite-800: #186326;
+  --color-malachite-900: #165121;
+  --color-malachite-950: #062d0e;
+
+  /* 🖤 Neutral Colors */
+  --color-black: #000000;
+  --color-white: #ffffff;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  
+}
