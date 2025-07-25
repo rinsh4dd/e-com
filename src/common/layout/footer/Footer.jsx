@@ -205,14 +205,7 @@ function Footer() {
                 Get the latest deals and new arrivals
               </p>
               <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-l-md focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500"
-                />
-                <button className="px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-r-md hover:bg-red-600 transition-colors duration-200">
-                  Subscribe
-                </button>
+                
               </div>
             </div>
           </div>
