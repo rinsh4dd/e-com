@@ -53,9 +53,9 @@ function Landing() {
   }, []);
 
   return (
-    <div>
+    <div className="mt-10">
      
-      <div className="relative w-full mb-4 h-[300px] sm:h-[400px] md:h-[450px] overflow-hidden rounded-lg shadow">
+      <div className="relative w-full mb-4 h-[300px] sm:h-[400px] md:h-[450px] overflow-hidden  shadow">
         {bannerImages.map((src, index) => (
           <img
             key={index}

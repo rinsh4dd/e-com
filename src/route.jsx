@@ -58,7 +58,7 @@ function AppRoutesWrapper() {
     <div className="w-full min-h-screen bg-white flex flex-col justify-between">
       {!shouldHideNavbar && <Navbar />}
 
-      <div className="flex-grow">
+      <div className="flex-grow w-[95%] mx-auto">
         <Suspense
           fallback={<ShoeCartLoader/>}
         >
