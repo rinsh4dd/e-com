@@ -112,7 +112,7 @@ function RegistrationPage() {
         created_at: new Date().toISOString(),
       };
 
-      await axios.post("${URL}/users", newUser);
+      await axios.post(`${URL}/users`, newUser);
       setSuccess(true);
       setFormData({ name: "", email: "", password: "" });
 
