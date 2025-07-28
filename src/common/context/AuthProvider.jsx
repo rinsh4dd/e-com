@@ -14,7 +14,7 @@ export default function AuthProvider({ children }) {
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
-    setLoading(false);
+    setLoading(false); 
   }, []);
 
 useEffect(() => {
@@ -45,7 +45,7 @@ useEffect(() => {
   };
 
   return (
-    <AuthContext.Provider value={{ user,setUser, login, register, logout, loading,setCartLength,cartLength }}>
+    <AuthContext.Provider value={{user,setUser, login, register, logout, loading,setCartLength,cartLength }}>
       {!loading && children}
     </AuthContext.Provider>
   );
