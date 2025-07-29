@@ -17,6 +17,7 @@ export default function AuthProvider({ children }) {
     setLoading(false); 
   }, []);
 
+  
 useEffect(() => {
     if (user) {
       fetch(`${URL}/users/${user.id}`)
