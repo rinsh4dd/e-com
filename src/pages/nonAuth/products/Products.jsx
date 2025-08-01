@@ -56,7 +56,7 @@ function Products() {
       {/* Filters */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
         {/* Categories - scrollable on mobile */}
-        <div className="flex gap-2 overflow-x-auto scrollbar-hide">
+        <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2">
           {["All", ...categories].map((cat) => (
             <button
               key={cat}
@@ -131,7 +131,7 @@ function Products() {
         {loading ? (
           <ShoeCartLoader/>
         ) : filteredItems.length > 0 ? (
-          <div className="grid gap-6 justify-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid gap-4 grid-cols-2 sm:gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {filteredItems.map((p) => (
               <ProductListCard
                 key={p.id}
@@ -142,7 +142,8 @@ function Products() {
                 price={p.price}
                 category={p.category}
                 brand={p.brand}
-                in_stock = {p.in_stock}
+                in_stock={p.in_stock}
+                mobileView={true} // Add this prop for mobile-specific styling
               />
             ))}
           </div>

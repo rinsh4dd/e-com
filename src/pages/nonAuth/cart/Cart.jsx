@@ -89,21 +89,45 @@ function Cart() {
 
   if (cart.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4">
-        <div className="max-w-md text-center">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24 mx-auto text-gray-400 mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-          </svg>
-          <h2 className="text-2xl font-medium text-gray-800 mb-3">Your cart is empty</h2>
-          <p className="text-gray-500 mb-6">Looks like you haven't added any items to your cart yet.</p>
-          <button 
-            onClick={() => navigate("/")}
-            className="px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-200 shadow-sm font-medium"
-          >
-            Continue Shopping
-          </button>
-        </div>
-      </div>
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 p-6">
+  {/* Static Cart Icon with Pulse Background */}
+  <div className="relative mb-8">
+    {/* Subtle ping background */}
+    <div className="absolute inset-0 rounded-full bg-indigo-500 opacity-20 animate-ping"></div>
+    <div className="absolute inset-0 rounded-full bg-indigo-500 opacity-30 animate-pulse"></div>
+
+    {/* Static icon container */}
+    <div className="relative w-20 h-20 bg-red-500 rounded-full flex items-center justify-center shadow-xl">
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+    </div>
+  </div>
+
+  {/* Heading + Subtext */}
+  <h1 className="text-3xl font-bold text-gray-800 mb-2 text-center">
+    Your <span className="text-red-500">Cart</span> is Empty
+  </h1>
+  <p className="text-gray-500 text-center max-w-md">
+    Looks like you haven’t added anything to your cart yet. Start exploring our latest shoe collections and find your perfect pair!
+  </p>
+
+  {/* Continue Shopping Button */}
+  <button 
+    onClick={() => navigate("/")}
+    className="mt-8 px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-700 transition duration-200 shadow-md font-medium"
+  >
+    Continue Shopping
+  </button>
+
+  {/* Bouncing Dots – Same Color Theme */}
+  <div className="mt-6 flex space-x-2">
+    <div className="w-3 h-3 bg-red-500 rounded-full animate-bounce"></div>
+    <div className="w-3 h-3 bg-red-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+    <div className="w-3 h-3 bg-red-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+  </div>
+</div>
+
     );
   }
 
@@ -160,7 +184,7 @@ function Cart() {
                         <button 
                           onClick={() => handleRemove(index)}
                           disabled={isUpdating}
-                          className="ml-4 text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                          className="ml-4 text-sm font-medium text-red-500 hover:text-indigo-500"
                         >
                           Remove
                         </button>
@@ -195,7 +219,7 @@ function Cart() {
               <button 
                 onClick={handleCheckout}
                 disabled={isUpdating || isLoading}
-                className="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700"
+                className="w-full bg-red-500 border border-transparent rounded-md py-3 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700"
               >
                 {isUpdating ? (
                   <>
@@ -212,7 +236,7 @@ function Cart() {
                   or{" "}
                   <button
                     onClick={() => navigate("/")}
-                    className="text-indigo-600 font-medium hover:text-indigo-500"
+                    className="text-red-500 font-medium hover:text-indigo-500"
                   >
                     Continue Shopping →
                   </button>
