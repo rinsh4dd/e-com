@@ -56,7 +56,7 @@ function Landing() {
   return (
     <div className="mt-10">
      
-      <div className="relative w-full mb-4 h-[300px] sm:h-[400px] md:h-[450px] overflow-hidden shadow">
+      <div className="relative w-full mb-4 h-[300px] sm:h-[400px] md:h-[450px] overflow-hidden  shadow">
         {bannerImages.map((src, index) => (
           <img
             key={index}
@@ -69,8 +69,8 @@ function Landing() {
         ))}
       </div>
 
-      {/* 🔁 Product Grid with Loader - Updated for 2 cards on mobile */}
-      <div className="min-h-[200px] px-3 sm:px-4">
+      {/* 🔁 Product Grid with Loader */}
+      <div className="min-h-[200px]">
         {loading ? (
           <ShoeCartLoader/>
         ) : item.length === 0 ? (
@@ -78,7 +78,7 @@ function Landing() {
             No products found or failed to load.
           </p>
         ) : (
-          <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 justify-items-center max-w-7xl mx-auto">
+          <div className="grid gap-2.5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-items-center">
             {item.map((e) => (
               <Card
                 key={e?.id}
@@ -98,7 +98,7 @@ function Landing() {
       <Brand />
       <About />
 
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center mb-6 text-center sm:text-left">
           <h2 className="text-3xl font-bold text-gray-800">Products</h2>
           <p className="mt-2 text-gray-600">Browse our premium collection</p>
@@ -113,7 +113,7 @@ function Landing() {
             No more products found.
           </p>
         ) : (
-          <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 justify-items-center">
+          <div className="grid gap-2.5 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
             {item2.map((e) => (
               <ProductListCard
                 key={e?.id}
