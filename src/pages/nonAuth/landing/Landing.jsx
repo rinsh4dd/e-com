@@ -7,6 +7,7 @@ import Guarantee from "./MoreAbout";
 import ProductListCard from "../../../common/components/card/ProductListCard";
 import { AuthContext } from "../../../common/context/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import ShoeCartLoader from "../../../common/ui/Loader";
 
 function Landing() {
   const [item, setItem] = useState([]);
@@ -71,9 +72,7 @@ function Landing() {
       {/* 🔁 Product Grid with Loader */}
       <div className="min-h-[200px]">
         {loading ? (
-          <p className="text-center text-gray-600 py-8 text-lg">
-            Loading products...
-          </p>
+          <ShoeCartLoader/>
         ) : item.length === 0 ? (
           <p className="text-center text-red-500 py-8 text-lg">
             No products found or failed to load.
