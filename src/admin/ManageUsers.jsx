@@ -15,6 +15,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { URL } from "../service/api";
+import ShoeCartLoader from "../common/ui/Loader";
 
 function ManageUsers() {
   const [users, setUsers] = useState([]);
@@ -113,9 +114,7 @@ function ManageUsers() {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
-      
-      </div>
+      <ShoeCartLoader/>
     );
   }
 

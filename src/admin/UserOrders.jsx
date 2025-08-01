@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { FaUser, FaShoppingBag, FaRupeeSign, FaBox, FaShippingFast, FaCheckCircle, FaClock } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { URL } from "../service/api";
+import ShoeCartLoader from "../common/ui/Loader";
 
 function UserOrders() {
   const { id } = useParams();
@@ -28,9 +29,7 @@ function UserOrders() {
   }, [id]);
 
   if (loading) return (
-    <div className="flex justify-center items-center min-h-screen">
-      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-    </div>
+    <ShoeCartLoader/>
   );
 
   // Calculate order stats

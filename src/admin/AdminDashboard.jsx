@@ -27,6 +27,7 @@ import {
 import { motion } from "framer-motion";
 import { AuthContext } from "../common/context/AuthProvider";
 import { URL } from "../service/api";
+import ShoeCartLoader from "../common/ui/Loader";
 
 // Register ChartJS components
 ChartJS.register(
@@ -165,9 +166,7 @@ function AdminDashboard() {
 
   if (authLoading || loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin h-12 w-12 border-4 border-blue-500 border-t-transparent rounded-full" />
-      </div>
+      <ShoeCartLoader/>
     );
   }
 

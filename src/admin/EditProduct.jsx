@@ -5,6 +5,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { motion } from "framer-motion";
 import { URL } from "../service/api";
+import ShoeCartLoader from "../common/ui/Loader";
 
 function EditProductPage() {
   const { id } = useParams();
@@ -95,9 +96,7 @@ function EditProductPage() {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
-    
-      </div>
+      <ShoeCartLoader/>
     );
   }
 

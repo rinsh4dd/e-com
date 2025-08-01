@@ -6,6 +6,7 @@ import { CiHeart, CiTrash } from "react-icons/ci";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { URL } from "../../../service/api";
+import ShoeCartLoader from "../../../common/ui/Loader";
 
 function Wishlist() {
   const [wishlist, setWishlist] = useState([]);
@@ -79,12 +80,7 @@ function Wishlist() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading your wishlist...</p>
-        </div>
-      </div>
+      <ShoeCartLoader/>
     );
   }
 

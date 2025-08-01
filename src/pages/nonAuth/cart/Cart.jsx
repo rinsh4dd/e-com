@@ -4,6 +4,7 @@ import { AuthContext } from "../../../common/context/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { URL } from "../../../service/api";
+import ShoeCartLoader from "../../../common/ui/Loader";
 
 function Cart() {
   const [cart, setCart] = useState([]);
@@ -82,12 +83,7 @@ function Cart() {
 
   if (isLoading) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4">
-        <div className="max-w-md text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-600 mx-auto" />
-          <h2 className="text-xl font-medium text-gray-800">Loading your cart...</h2>
-        </div>
-      </div>
+      <ShoeCartLoader/>
     );
   }
 

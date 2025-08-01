@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../../common/context/AuthProvider";
 import { URL } from "../../../service/api";
+import ShoeCartLoader from "../../../common/ui/Loader";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -175,9 +176,7 @@ function ProductDetails() {
 
   if (!product) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-50 text-gray-500 animate-pulse">
-        Loading product details...
-      </div>
+      <ShoeCartLoader/>
     );
   }
 
