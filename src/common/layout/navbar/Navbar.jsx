@@ -1,10 +1,26 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { CiShoppingCart, CiHeart, CiUser } from "react-icons/ci";
 import { IoLogoAmplify } from "react-icons/io5";
 import { HiMenu, HiX } from "react-icons/hi";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../common/context/AuthProvider";
+
+// Custom hook to detect clicks outside an element
+const useClickOutside = (ref, callback) => {
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        callback();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [ref, callback]);
+};
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +30,21 @@ function Navbar() {
 
   const { user, loading, setCartLength, cartLength, logout } =
     useContext(AuthContext);
+  
+  // Refs for click outside detection
+  const mobileMenuRef = useRef(null);
+  const profileDropdownRef = useRef(null);
+
+  // Close mobile menu when clicking outside
+  useClickOutside(mobileMenuRef, () => {
+    if (isOpen) setIsOpen(false);
+  });
+
+  // Close profile dropdown when clicking outside
+  useClickOutside(profileDropdownRef, () => {
+    if (showProfileDropdown) setShowProfileDropdown(false);
+  });
+
   if (loading) return null;
 
   const isCartActive = location.pathname === "/cart";
@@ -126,7 +157,7 @@ function Navbar() {
           ))}
 
           {/* Icons */}
-          <div className="flex gap-4 text-2xl relative">
+          <div className="flex gap-4 text-2xl relative" ref={profileDropdownRef}>
             <CiShoppingCart
               onClick={handleCartClick}
               className={`cursor-pointer transition duration-200 ${
@@ -170,7 +201,10 @@ function Navbar() {
                   Signed in as <b>{user.name}</b>
                 </div>
                 <button
-                  onClick={() => navigate("/orders")}
+                  onClick={() => {
+                    navigate("/orders");
+                    setShowProfileDropdown(false);
+                  }}
                   className={`w-full text-left px-3 py-1 hover:bg-gray-100 ${
                     isOrdersActive ? "text-red-500" : "text-gray-500"
                   }`}
@@ -205,7 +239,7 @@ function Navbar() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden px-4 pb-4">
+        <div className="md:hidden px-4 pb-4" ref={mobileMenuRef}>
           <div className="flex flex-col gap-4 bg-white rounded shadow p-4 text-[16px]">
             {navItems.map(({ label, path }) => (
               <div
@@ -228,7 +262,7 @@ function Navbar() {
             <div className="flex gap-6 text-2xl mt-2 justify-center">
               <CiShoppingCart
                 onClick={() => {
-                  navigate("/cart");
+                  handleCartClick();
                   setIsOpen(false);
                 }}
                 className={`cursor-pointer transition duration-200 ${

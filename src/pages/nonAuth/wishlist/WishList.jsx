@@ -153,7 +153,7 @@ function Wishlist() {
                   <p className="text-gray-500 text-sm mb-2">{product.brand}</p>
                 </div>
                 <p className="text-lg font-semibold text-gray-900 mb-4">
-                  ₹{product.price.toFixed(2)}
+                  ${product.price.toFixed(2)}
                 </p>
                 <button
                   onClick={() => navigate(`/product/${product.id}`)}
