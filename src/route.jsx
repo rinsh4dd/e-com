@@ -90,14 +90,8 @@ function AppRoutesWrapper() {
               <Route path="/admin/users" element={<ManageUsers />} />
               <Route path="/admin/products" element={<ManageProducts />} />
               <Route path="/admin/orders" element={<ManageOrders />} />
-              <Route
-                path="/admin/products/addproduct"
-                element={<AddProductPage />}
-              />
-              <Route
-                path="/admin/products/edit/:id"
-                element={<EditProductPage />}
-              />
+              <Route path="/admin/products/addproduct"element={<AddProductPage />}/>
+              <Route path="/admin/products/edit/:id" element={<EditProductPage />}/>
               <Route path="/admin/user-orders/:id" element={<UserOrders />} />
             </Route>
           </Routes>

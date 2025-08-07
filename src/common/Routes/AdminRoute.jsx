@@ -6,7 +6,7 @@ const AdminPrivateRoute = () => {
   const { user } = useContext(AuthContext);
 
   const isAdmin = user.role === "admin";
-
+ 
   return isAdmin ? <Outlet/> : <Navigate to="/" replace />;
 };
 
